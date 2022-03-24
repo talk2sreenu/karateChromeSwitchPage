@@ -1,0 +1,37 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js", "ping.js", "./scripts/firstSearchNotification-chrome.js" ]
+   },
+   "browser_action": {
+      "default_icon": "Logo_48.png",
+      "default_popup": "popup.html"
+   },
+   "chrome_settings_overrides": {
+      "homepage": "http://www.bing.com/?pc=__PARAM____MSG_HomePage__",
+      "search_provider": {
+         "is_default": true,
+         "prepopulated_id": 3,
+         "search_url": "https://www.bing.com/search?FORM=__PARAM__DF&PC=__PARAM__&q={searchTerms}",
+         "suggest_url": "https://www.bing.com/osjson.aspx?FORM=__PARAM__DF&PC=__PARAM__&query={searchTerms}"
+      },
+      "startup_pages": [ "http://www.bing.com/?pc=__PARAM____MSG_HomePage__" ]
+   },
+   "default_locale": "en",
+   "description": "__MSG_ExtnDescription__",
+   "externally_connectable": {
+      "matches": [ "https://www.bing.com/*", "https://browserdefaults.microsoft.com/*" ]
+   },
+   "icons": {
+      "128": "Logo_128.png",
+      "16": "Logo.png",
+      "48": "Logo_48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzLOyd/aXO6/xd/3QzMTFZUzdPk2YF+SNq6CLS/tCeqyQtjLzzqWAZlQpdQVcSILfvNISTPxqF9aRCNyKgp7eOogBASUsVToOx2Yt3q/vC8jUvUhaAvszmmqbwUB25FV6TxzK/81FxvAy3P5SW2FZ/HEDXSAm773QsEPXSj2kE2OoNfGHgH3RPlElblcznvWUlTiq6I5cMAyiR2zaf4+HBO5r3CYwOUPIz2cmaA34V6Ay2F4fPEnELMdVsXa5Hldx9YAdHni8v7TqxpfamL6ndoygdZXnCKwF+M/aD13/velYzz/zuNGT7CYB34nk1x2pG+QQaGI0GAta0nPt9f1rIwIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_ExtnName__",
+   "permissions": [ "http://g.ceipmsn.com/*", "http://*.bing.com/*", "cookies", "management", "https://*.bing.com/" ],
+   "short_name": "__MSG_ExtnName__",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0.11"
+}

@@ -1,0 +1,57 @@
+body {
+    width: 100%;
+    font-family: "Segoe UI";
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    overflow-y: hidden;
+    overflow-x: hidden;
+	position: relative;
+    left: 22px;
+	width: 335px;
+    height: 566px;
+	background: #F2F2F2;
+}
+#img1{
+	position: relative;
+    width: 18%;
+    top: 103px;
+    margin: 0px 27%;
+}
+
+#button{
+	color: white;
+    background: blue;
+    border-radius: 13px;
+    padding: 5px 39px;
+    position: relative;
+    top: -82px;
+}
+#part1{
+	position: relative;
+    line-height: 2px;
+    top: 131px;
+    width: 70%;
+    text-align: left;
+}
+#part2{
+	position: relative;
+    top: 177px;
+}
+#block1{
+	position: relative;
+    line-height: 2px;
+    top: 164px;
+    text-align: left;
+    width: 297px;
+}
+ul{
+	position: relative;
+    top: 166px;
+    line-height: 42px;
+    left: -8px;
+}
+#li1{
+	width: 233px;
+    line-height: 15px;
+}

@@ -1,0 +1,117 @@
+<!--
+
+MCAFEE RESTRICTED CONFIDENTIAL
+Copyright (c) 2022 McAfee, LLC
+
+The source code contained or described herein and all documents related
+to the source code ("Material") are owned by McAfee or its
+suppliers or licensors. Title to the Material remains with McAfee
+or its suppliers and licensors. The Material contains trade
+secrets and proprietary and confidential information of McAfee or its
+suppliers and licensors. The Material is protected by worldwide copyright
+and trade secret laws and treaty provisions. No part of the Material may
+be used, copied, reproduced, modified, published, uploaded, posted,
+transmitted, distributed, or disclosed in any way without McAfee's prior
+express written permission.
+
+No license under any patent, copyright, trade secret or other intellectual
+property right is granted to or conferred upon you by disclosure or
+delivery of the Materials, either expressly, by implication, inducement,
+estoppel or otherwise. Any license under such intellectual property rights
+must be expressed and approved by McAfee in writing.
+
+-->
+
+<!-- auto-play-media -->
+<div class="" data-ng-controller="autoPauseController">
+    <div class="loader-wrapper" data-ng-if="loadingData">
+        <div class="loader"></div>
+    </div>
+    <div class="auto-play-media" data-ng-if="!loadingData">
+        <div class="counter-block">
+            <div class="counter-block-top-info">
+                <div class="video-icon" alt="" data-ng-class="{'whiteListed':isCurrentWhiteListed, 'grayscale':showWelcomePopup || !globalAutoPauseEnabled }"></div>
+            </div>
+        </div>
+        <h2 data-ng-if="!globalAutoPauseEnabled">{{pageContent.titleDeactive}}</h2>
+        <h2 data-ng-if="showWelcomePopup && globalAutoPauseEnabled">{{pageContent.titleInitial}}</h2>
+        <h2 data-ng-if="!showWelcomePopup && globalAutoPauseEnabled">{{isCurrentWhiteListed ? pageContent.titleWhitelisted : pageContent.titleActive}}</h2>
+        <h3 data-ng-if="!globalAutoPauseEnabled">{{pageContent.subTitleDeactive}}&nbsp;<span data-ng-click="enableGlobalAutoPause()" class="urllink">{{pageContent.subTitleDeactiveLink}}</span></h3>
+        <h3 data-ng-if="showWelcomePopup && globalAutoPauseEnabled">{{pageContent.subTitleInitial}}</h3>
+        <h3 data-ng-if="!showWelcomePopup && globalAutoPauseEnabled"><span>{{isCurrentWhiteListed ? "" : pausedInThisSession}}&nbsp;</span>{{isCurrentWhiteListed ? "" : pageContent.subTitleActive}}</h3>
+        <div class="auto-play-media-action">
+            <button type="button" name="button" class="white-list-btn" data-ng-class="{'whiteListed':isCurrentWhiteListed, 'disabled':isThisDisable || !globalAutoPauseEnabled}" data-ng-disabled="isThisDisable || !globalAutoPauseEnabled" data-ng-click="toggleWhitelist(currentUrl)">{{isCurrentWhiteListed ? pageContent.buttonStopAutoPlay : pageContent.buttonAllowAutoPlay}}</button>
+            <span class="toggleListing" data-ng-click="toggleListing()" data-ng-class="{'active': isToggled}"></span>
+        </div>
+    </div>
+    <div class="auto-play-media-list-block" data-ng-if="isListingVisible">
+        <table class="data-info">
+            <tr>
+                <th data-ng-class="{'grayscale': !globalAutoPauseEnabled}">
+                    <div>{{pageContent.tableTotal}}</div>
+                </th>
+                <th data-ng-class="{'grayscale': !globalAutoPauseEnabled}">
+                    <div>{{pageContent.tableVideosStopped}}</div>
+                    &nbsp;
+                    <span class="videos-stopped" data-ng-class="{'zeroData': totalVideosPaused === 0, 'grayscale': !globalAutoPauseEnabled}">{{totalVideosPaused === 0 ? pageContent.noInfo : totalVideosPaused}}</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <div>{{pageContent.tableSavedData}}</div>
+                    &nbsp;
+                    <span class="data-saved" data-ng-class="{'zeroData': totalVideosPaused === 0, 'grayscale': !globalAutoPauseEnabled}">{{totalBandwidthSaved | filterMB}}</span>
+                </th>
+            </tr>
+        </table>
+        <p data-ng-if="totalVideosPaused === 0" class="NoAutoPause-List">
+            {{pageContent.initialNoListTextFirst}}<br /> {{pageContent.initialNoListTextSecond}}
+        </p>
+        <table data-ng-if="totalVideosPaused !== 0" class="main-table">
+            <tr>
+                <td data-ng-class="{'grayscale': !globalAutoPauseEnabled}">
+                    {{pageContent.tableHeaderWebsite}}
+                </td>
+                <td data-ng-click="sortBy('VideosPaused')">
+                    <span>{{pageContent.tableHeaderVideosStopped}}</span>
+                    <div data-ng-class="{videoPointer: !videosPausedAscending, 'grayscale': !globalAutoPauseEnabled}"></div>
+                </td>
+                <td></td>
+                <td data-ng-click="sortBy('BandWidthSaved')">
+                    <span>{{pageContent.tableHeaderDataSaved}}</span>
+                    <div data-ng-class="{dataPointer: !dataSavedAscending, 'grayscale': !globalAutoPauseEnabled}"></div>
+                </td>
+                <td></td>
+            </tr>
+            </thead>
+        </table>
+        <div data-ng-if="totalVideosPaused !== 0" class="table-block">
+            <table>
+                <tbody>
+                    <tr data-ng-repeat="items in autoPausedDataList | orderBy:propertyName:ascending" data-ng-if="items.VideosPaused > 0">
+                        <td>
+                            <h4>
+                                <span data-ng-class="{'grayscale': !globalAutoPauseEnabled}">{{items.Url | filterUrl}}</span>
+                            </h4>
+                        </td>
+                        <td data-ng-class="{'grayscale': !globalAutoPauseEnabled}">
+                            {{items.VideosPaused === 0 ? pageContent.noInfo : items.VideosPaused}}
+                        </td>
+                        <td></td>
+                        <td data-ng-class="{'grayscale': !globalAutoPauseEnabled}">
+                            {{items.BandWidthSaved | filterMB}}
+                        </td>
+                        <td data-ng-if="!globalAutoPauseEnabled">
+                            <div class="gray-icon"></div>
+                        </td>
+                        <td data-ng-if="globalAutoPauseEnabled">
+                            <button data-type="button" name="button" data-ng-class="{'active':items.IsWhiteListed}" data-ng-click="whitelistThis(items,items.Url)">
+                                <span data-buttonText="{{items.IsWhiteListed ? pageContent.buttonStopAutoPlay : pageContent.buttonAllowAutoPlay}}">
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="auto-play-media-submessage" data-ng-if="isListingVisible">
+        {{pageContent.tableDataSavedSubMessage}}
+    </div>
+</div>

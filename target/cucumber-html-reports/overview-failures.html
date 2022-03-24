@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports  - Failures Overview</title>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation"  class="active" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>demo</td>
+      <td>24 Mar 2022, 09:19</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Failures Overview</h2>
+      <p>The following summary displays scenarios that failed.</p>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <div class="elements">
+
+<div class="element">
+    <div class="indention">
+      <b>Feature:</b>
+      <a href="report-feature_1582783457.html">com/switchPage/switchPageValidation.feature</a>
+    </div>
+
+
+<div class="tags indention">
+</div>
+
+
+  <span class="lead-duration duration">1:2.806</span>
+
+
+  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+
+<div class="brief failed">
+  <span class="keyword indention">Scenario</span>
+  <span class="name">To verify switchPage in Karate-Chrome docker container</span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </span>
+  <div class="description indention"></div>
+
+  <div id="element-1" class="collapse collapsable-details  in ">
+
+
+
+
+
+<div class="steps inner-level">
+  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-2">
+
+<div class="brief failed">
+  <span class="keyword indention">Steps</span>
+  <span class="name"></span>
+
+
+     <i class="chevron fa fa-fw"></i>
+</div>
+
+  </div>
+
+  <div id="steps-2" class="inner-level collapse collapsable-details  in ">
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">configure driverTarget = { docker: 'ptrthomas/karate-chrome', showDriverLog: true, addOptions:[&quot;--disable-popup-blocking&quot;, &quot;--disable-extensions&quot;]}</span>
+
+  <span class="lead-duration duration">0.099</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">driver 'https://www.restaurant.com/'</span>
+
+  <span class="lead-duration duration">49.942</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-3">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-3" class="collapse collapsable-details">
+        <pre>09:17:48.843 custom target configured, calling start()
+09:18:31.869 request:
+1 &gt; GET http://127.0.0.1:53484/json
+1 &gt; Host: 127.0.0.1:53484
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.13 (Java/11.0.11)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+09:18:32.330 response time in milliseconds: 461
+1 &lt; 200
+1 &lt; Content-Length: 2153
+1 &lt; Content-Type: application/json; charset=UTF-8
+[ {
+   &quot;description&quot;: &quot;&quot;,
+   &quot;devtoolsFrontendUrl&quot;: &quot;/devtools/inspector.html?ws=127.0.0.1:53484/devtools/page/8FD064BEF7A086DFC58AD067E49F65BD&quot;,
+   &quot;id&quot;: &quot;8FD064BEF7A086DFC58AD067E49F65BD&quot;,
+   &quot;title&quot;: &quot;CryptoTokenExtension&quot;,
+   &quot;type&quot;: &quot;background_page&quot;,
+   &quot;url&quot;: &quot;chrome-extension://kmendfapggjehodndflmmgagdbamhnfd/_generated_background_page.html&quot;,
+   &quot;webSocketDebuggerUrl&quot;: &quot;ws://127.0.0.1:53484/devtools/page/8FD064BEF7A086DFC58AD067E49F65BD&quot;
+}, {
+   &quot;description&quot;: &quot;&quot;,
+   &quot;devtoolsFrontendUrl&quot;: &quot;/devtools/inspector.html?ws=127.0.0.1:53484/devtools/page/2F9DDD0C733E33769EDB197E2C4FD601&quot;,
+   &quot;id&quot;: &quot;2F9DDD0C733E33769EDB197E2C4FD601&quot;,
+   &quot;title&quot;: &quot;Google Network Speech&quot;,
+   &quot;type&quot;: &quot;background_page&quot;,
+   &quot;url&quot;: &quot;chrome-extension://neajdppkdcdipfabeoofebfddakdcjhd/_generated_background_page.html&quot;,
+   &quot;webSocketDebuggerUrl&quot;: &quot;ws://127.0.0.1:53484/devtools/page/2F9DDD0C733E33769EDB197E2C4FD601&quot;
+}, {
+   &quot;description&quot;: &quot;&quot;,
+   &quot;devtoolsFrontendUrl&quot;: &quot;/devtools/inspector.html?ws=127.0.0.1:53484/devtools/page/A8C938F87EE8F72B15A95171EDAD45C8&quot;,
+   &quot;id&quot;: &quot;A8C938F87EE8F72B15A95171EDAD45C8&quot;,
+   &quot;title&quot;: &quot;Feedback&quot;,
+   &quot;type&quot;: &quot;background_page&quot;,
+   &quot;url&quot;: &quot;chrome-extension://gfdkimpbcpahaombhbimeihdjnejgicl/_generated_background_page.html&quot;,
+   &quot;webSocketDebuggerUrl&quot;: &quot;ws://127.0.0.1:53484/devtools/page/A8C938F87EE8F72B15A95171EDAD45C8&quot;
+}, {
+   &quot;description&quot;: &quot;&quot;,
+   &quot;devtoolsFrontendUrl&quot;: &quot;/devtools/inspector.html?ws=127.0.0.1:53484/devtools/page/0AAC468FEC9D06B2E647D0978926999E&quot;,
+   &quot;id&quot;: &quot;0AAC468FEC9D06B2E647D0978926999E&quot;,
+   &quot;title&quot;: &quot;Google Hangouts&quot;,
+   &quot;type&quot;: &quot;background_page&quot;,
+   &quot;url&quot;: &quot;chrome-extension://nkeimhogjdpnpccoofpliimaahmaaome/background.html&quot;,
+   &quot;webSocketDebuggerUrl&quot;: &quot;ws://127.0.0.1:53484/devtools/page/0AAC468FEC9D06B2E647D0978926999E&quot;
+}, {
+   &quot;description&quot;: &quot;&quot;,
+   &quot;devtoolsFrontendUrl&quot;: &quot;/devtools/inspector.html?ws=127.0.0.1:53484/devtools/page/2FC741112657DBC1F3B1BB2E03649615&quot;,
+   &quot;id&quot;: &quot;2FC741112657DBC1F3B1BB2E03649615&quot;,
+   &quot;title&quot;: &quot;&quot;,
+   &quot;type&quot;: &quot;page&quot;,
+   &quot;url&quot;: &quot;chrome://welcome/?variant=everywhere&quot;,
+   &quot;webSocketDebuggerUrl&quot;: &quot;ws://127.0.0.1:53484/devtools/page/2FC741112657DBC1F3B1BB2E03649615&quot;
+} ]
+
+09:18:32.333 root frame id: 2FC741112657DBC1F3B1BB2E03649615
+09:18:32.622 &gt;&gt; {&quot;id&quot;:1,&quot;method&quot;:&quot;Target.attachToTarget&quot;,&quot;params&quot;:{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;flatten&quot;:true}}
+09:18:32.788 &lt;&lt; {&quot;method&quot;:&quot;Target.attachedToTarget&quot;,&quot;params&quot;:{&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;targetInfo&quot;:{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;type&quot;:&quot;page&quot;,&quot;title&quot;:&quot;&quot;,&quot;url&quot;:&quot;chrome://welcome/?variant=everywhere&quot;,&quot;attached&quot;:true,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},&quot;waitingForDebugger&quot;:false}}
+09:18:32.790 &lt;&lt; {&quot;id&quot;:1,&quot;result&quot;:{&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}}
+09:18:32.795 &gt;&gt; {&quot;id&quot;:2,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Target.activateTarget&quot;,&quot;params&quot;:{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;}}
+09:18:32.801 &lt;&lt; {&quot;id&quot;:2,&quot;result&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:32.802 &gt;&gt; {&quot;id&quot;:3,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Page.enable&quot;}
+09:18:38.052 &lt;&lt; {&quot;id&quot;:3,&quot;result&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:38.055 &gt;&gt; {&quot;id&quot;:4,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Runtime.enable&quot;}
+09:18:38.121 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextCreated&quot;,&quot;params&quot;:{&quot;context&quot;:{&quot;id&quot;:1,&quot;origin&quot;:&quot;chrome://welcome&quot;,&quot;name&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;-1146918390028653702.-7154401145491495614&quot;,&quot;auxData&quot;:{&quot;isDefault&quot;:true,&quot;type&quot;:&quot;default&quot;,&quot;frameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;}}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:38.122 &lt;&lt; {&quot;id&quot;:4,&quot;result&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:38.123 &gt;&gt; {&quot;id&quot;:5,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Browser.getWindowForTarget&quot;,&quot;params&quot;:{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;}}
+09:18:38.129 &lt;&lt; {&quot;id&quot;:5,&quot;result&quot;:{&quot;windowId&quot;:1,&quot;bounds&quot;:{&quot;left&quot;:0,&quot;top&quot;:0,&quot;width&quot;:1279,&quot;height&quot;:719,&quot;windowState&quot;:&quot;normal&quot;}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:38.291 &gt;&gt; {&quot;id&quot;:6,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Page.navigate&quot;,&quot;params&quot;:{&quot;url&quot;:&quot;https:\/\/www.restaurant.com\/&quot;}}
+09:18:38.651 &lt;&lt; {&quot;method&quot;:&quot;Page.navigatedWithinDocument&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;url&quot;:&quot;chrome://welcome/&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:38.652 &lt;&lt; {&quot;method&quot;:&quot;Page.domContentEventFired&quot;,&quot;params&quot;:{&quot;timestamp&quot;:576.184843},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">maximize()</span>
+
+  <span class="lead-duration duration">0.010</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-4">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-4" class="collapse collapsable-details">
+        <pre>09:18:38.654 &gt;&gt; {&quot;id&quot;:7,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Browser.setWindowBounds&quot;,&quot;params&quot;:{&quot;windowId&quot;:1,&quot;bounds&quot;:{&quot;windowState&quot;:&quot;maximized&quot;}}}
+09:18:38.658 &lt;&lt; {&quot;id&quot;:7,&quot;result&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">waitForEnabled('{a:1}Specials').click()</span>
+
+  <span class="lead-duration duration">3.597</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-5">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-5" class="collapse collapsable-details">
+        <pre>09:18:38.666 &gt;&gt; {&quot;id&quot;:8,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Runtime.evaluate&quot;,&quot;params&quot;:{&quot;expression&quot;:&quot;(function(){ var fun = function(_){ return !_.disabled }; var e = document.evaluate(\&quot;(\/\/a[normalize-space(text())='Specials'])[1]\&quot;, document, null, 9, null).singleNodeValue; return fun(e) })()&quot;,&quot;returnByValue&quot;:true}}
+09:18:38.697 &lt;&lt; {&quot;method&quot;:&quot;Page.frameResized&quot;,&quot;params&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:38.722 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.132 &lt;&lt; {&quot;method&quot;:&quot;Page.frameResized&quot;,&quot;params&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.136 &lt;&lt; {&quot;id&quot;:6,&quot;result&quot;:{&quot;frameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;loaderId&quot;:&quot;214B377C1206B261EE3DCA697F31B28F&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.143 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextsCleared&quot;,&quot;params&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.143 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.195 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextsCleared&quot;,&quot;params&quot;:{},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.195 &lt;&lt; {&quot;method&quot;:&quot;Page.frameNavigated&quot;,&quot;params&quot;:{&quot;frame&quot;:{&quot;id&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;loaderId&quot;:&quot;214B377C1206B261EE3DCA697F31B28F&quot;,&quot;url&quot;:&quot;https://www.restaurant.com/&quot;,&quot;domainAndRegistry&quot;:&quot;restaurant.com&quot;,&quot;securityOrigin&quot;:&quot;https://www.restaurant.com&quot;,&quot;mimeType&quot;:&quot;text/html&quot;,&quot;adFrameType&quot;:&quot;none&quot;,&quot;secureContextType&quot;:&quot;Secure&quot;,&quot;crossOriginIsolatedContextType&quot;:&quot;NotIsolated&quot;,&quot;gatedAPIFeatures&quot;:[&quot;SharedArrayBuffers&quot;,&quot;SharedArrayBuffersTransferAllowed&quot;]}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.196 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextCreated&quot;,&quot;params&quot;:{&quot;context&quot;:{&quot;id&quot;:1,&quot;origin&quot;:&quot;https://www.restaurant.com&quot;,&quot;name&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;6079442548239394527.-3974410228617096631&quot;,&quot;auxData&quot;:{&quot;isDefault&quot;:true,&quot;type&quot;:&quot;default&quot;,&quot;frameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;}}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.220 &lt;&lt; {&quot;id&quot;:8,&quot;result&quot;:{&quot;result&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;subtype&quot;:&quot;error&quot;,&quot;className&quot;:&quot;TypeError&quot;,&quot;description&quot;:&quot;TypeError: Cannot read property 'disabled' of null\n    at fun (&lt;anonymous&gt;:1:47)\n    at &lt;anonymous&gt;:1:182\n    at &lt;anonymous&gt;:1:191&quot;,&quot;objectId&quot;:&quot;-1879123886583748489.1.1&quot;},&quot;exceptionDetails&quot;:{&quot;exceptionId&quot;:1,&quot;text&quot;:&quot;Uncaught&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:46,&quot;scriptId&quot;:&quot;5&quot;,&quot;stackTrace&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;fun&quot;,&quot;scriptId&quot;:&quot;5&quot;,&quot;url&quot;:&quot;&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:46},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;5&quot;,&quot;url&quot;:&quot;&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:181},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;5&quot;,&quot;url&quot;:&quot;&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:190}]},&quot;exception&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;subtype&quot;:&quot;error&quot;,&quot;className&quot;:&quot;TypeError&quot;,&quot;description&quot;:&quot;TypeError: Cannot read property 'disabled' of null\n    at fun (&lt;anonymous&gt;:1:47)\n    at &lt;anonymous&gt;:1:182\n    at &lt;anonymous&gt;:1:191&quot;,&quot;objectId&quot;:&quot;-1879123886583748489.1.2&quot;}}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:39.220 devtools error: [id: 8, sessionId: F54258357AEAEAF6482748606B840146, result: [type: MAP, value: {type=object, subtype=error, className=TypeError, description=TypeError: Cannot read property 'disabled' of null
+    at fun (&lt;anonymous&gt;:1:47)
+    at &lt;anonymous&gt;:1:182
+    at &lt;anonymous&gt;:1:191, objectId=-1879123886583748489.1.1}]]
+09:18:39.221 js eval failed once:(function(){ var fun = function(_){ return !_.disabled }; var e = document.evaluate(&quot;(//a[normalize-space(text())='Specials'])[1]&quot;, document, null, 9, null).singleNodeValue; return fun(e) })(), error: [type: MAP, value: {type=object, subtype=error, className=TypeError, description=TypeError: Cannot read property 'disabled' of null
+    at fun (&lt;anonymous&gt;:1:47)
+    at &lt;anonymous&gt;:1:182
+    at &lt;anonymous&gt;:1:191, objectId=-1879123886583748489.1.1}]
+09:18:40.666 &lt;&lt; {&quot;method&quot;:&quot;Page.domContentEventFired&quot;,&quot;params&quot;:{&quot;timestamp&quot;:578.041357},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:40.667 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;,&quot;parentFrameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;i&quot;,&quot;scriptId&quot;:&quot;8&quot;,&quot;url&quot;:&quot;https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/visitorapi.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:20416},{&quot;functionName&quot;:&quot;attachIframe&quot;,&quot;scriptId&quot;:&quot;8&quot;,&quot;url&quot;:&quot;https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/visitorapi.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:21165},{&quot;functionName&quot;:&quot;n&quot;,&quot;scriptId&quot;:&quot;8&quot;,&quot;url&quot;:&quot;https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/visitorapi.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:26570},{&quot;functionName&quot;:&quot;attachIframeASAP&quot;,&quot;scriptId&quot;:&quot;8&quot;,&quot;url&quot;:&quot;https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/visitorapi.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:26614},{&quot;functionName&quot;:&quot;processIDCallData&quot;,&quot;scriptId&quot;:&quot;8&quot;,&quot;url&quot;:&quot;https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/script ...
+09:18:40.667 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:41.459 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:41.463 &lt;&lt; {&quot;method&quot;:&quot;Page.frameDetached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;,&quot;reason&quot;:&quot;swap&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:42.237 &gt;&gt; {&quot;id&quot;:9,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Runtime.evaluate&quot;,&quot;params&quot;:{&quot;expression&quot;:&quot;(function(){ var fun = function(_){ return !_.disabled }; var e = document.evaluate(\&quot;(\/\/a[normalize-space(text())='Specials'])[1]\&quot;, document, null, 9, null).singleNodeValue; return fun(e) })()&quot;,&quot;returnByValue&quot;:true}}
+09:18:42.250 &lt;&lt; {&quot;id&quot;:9,&quot;result&quot;:{&quot;result&quot;:{&quot;type&quot;:&quot;boolean&quot;,&quot;value&quot;:true}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:42.251 &gt;&gt; {&quot;id&quot;:10,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Runtime.evaluate&quot;,&quot;params&quot;:{&quot;expression&quot;:&quot;document.evaluate(\&quot;(\/\/a[normalize-space(text())='Specials'])[1]\&quot;, document, null, 9, null).singleNodeValue.click()&quot;,&quot;returnByValue&quot;:true}}
+09:18:42.258 &lt;&lt; {&quot;method&quot;:&quot;Page.windowOpen&quot;,&quot;params&quot;:{&quot;url&quot;:&quot;https://specials.restaurant.com/&quot;,&quot;windowName&quot;:&quot;_blank&quot;,&quot;windowFeatures&quot;:[&quot;menubar&quot;,&quot;toolbar&quot;,&quot;status&quot;,&quot;scrollbars&quot;,&quot;resizable&quot;,&quot;noopener&quot;],&quot;userGesture&quot;:false},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:42.260 &lt;&lt; {&quot;id&quot;:10,&quot;result&quot;:{&quot;result&quot;:{&quot;type&quot;:&quot;undefined&quot;}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* failed">
+  <span class="keyword indention">*</span>
+  <span class="name">switchPage('https://specials.restaurant.com/')</span>
+
+  <span class="lead-duration duration">9.156</span>
+
+</div>
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-6">
+          <a>js</a>
+      </div>
+      <div id="msg-6" class="collapse collapsable-details  in ">
+        <pre>js failed:
+&gt;&gt;&gt;&gt;
+01: switchPage('https://specials.restaurant.com/')
+&lt;&lt;&lt;&lt;
+org.graalvm.polyglot.PolyglotException: waiting to switch to tab: https://specials.restaurant.com/: failed after 3 retries and 9057 milliseconds
+- com.intuit.karate.driver.DriverOptions.retry(DriverOptions.java:517)
+- com.intuit.karate.driver.DevToolsDriver.switchPage(DevToolsDriver.java:865)
+- &lt;js&gt;.:anonymous(Unnamed:1)
+
+classpath:com/switchPage/switchPageValidation.feature:17</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-7">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-7" class="collapse collapsable-details">
+        <pre>09:18:42.262 &gt;&gt; {&quot;id&quot;:11,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Target.getTargets&quot;}
+09:18:42.267 &lt;&lt; {&quot;id&quot;:11,&quot;result&quot;:{&quot;targetInfos&quot;:[{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;type&quot;:&quot;page&quot;,&quot;title&quot;:&quot;Restaurant.com | Restaurant Reviews, Coupons and Deals&quot;,&quot;url&quot;:&quot;https://www.restaurant.com/&quot;,&quot;attached&quot;:true,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;url&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;attached&quot;:false,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;2F9DDD0C733E33769EDB197E2C4FD601&quot;,&quot;type&quot;:&quot;background_page&quot;,&quot;title&quot;:&quot;Google Network Speech&quot;,&quot;url&quot;:&quot;chrome-extension://neajdppkdcdipfabeoofebfddakdcjhd/_generated_background_page.html&quot;,&quot;attached&quot;:false,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;A8C938F87EE8F72B15A95171EDAD45C8&quot;,&quot;type&quot;:&quot;background_page&quot;,&quot;title&quot;:&quot;Feedback&quot;,&quot;url&quot;:&quot; ...
+09:18:42.267 waiting to switch to tab: https://specials.restaurant.com/ - retry #1
+09:18:42.441 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;F11DF33086E175E300C9603983667738&quot;,&quot;parentFrameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;e&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:4285},{&quot;functionName&quot;:&quot;window.__liSync&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:1885},{&quot;functionName&quot;:&quot;i&quot;,&quot;scriptId&quot;:&quot;19&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/a-00db.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:1714},{&quot;functionName&quot;:&quot;emit&quot;,&quot;scriptId&quot;:&quot;19&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/a-00db.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:1873},{&quot;functionName&quot;:&quot;i&quot;,&quot;scriptId&quot;:&quot;19&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/a-00db.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:2490},{&quot;functionName&quot;:&quot;I&quot;,&quot;scriptId&quot;:&quot;19&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/a-00db.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:2516},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;19&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/a-00db.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:19840},{&quot;func ...
+09:18:42.442 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;F11DF33086E175E300C9603983667738&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:42.654 &lt;&lt; {&quot;method&quot;:&quot;Runtime.consoleAPICalled&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;warning&quot;,&quot;args&quot;:[{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;AT:&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;request failed&quot;},{&quot;type&quot;:&quot;object&quot;,&quot;subtype&quot;:&quot;error&quot;,&quot;className&quot;:&quot;Error&quot;,&quot;description&quot;:&quot;Error: Request timed out\n    at XMLHttpRequest.n.ontimeout (https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/at-2.2.min.js:1:15081)&quot;,&quot;objectId&quot;:&quot;-1879123886583748489.1.3&quot;,&quot;preview&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;subtype&quot;:&quot;error&quot;,&quot;description&quot;:&quot;Error: Request timed out\n    at XMLHttpRequest.n.ontimeout (https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/at-2.2.min.js:1:15081)&quot;,&quot;overflow&quot;:false,&quot;properties&quot;:[{&quot;name&quot;:&quot;stack&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Error: Request timed out\n    at XMLHttpRequest.n.o\u20269.31.5/themes/base/scripts/at-2.2.min.js:1:15081)&quot;},{&quot;name&quot;:&quot;message&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Request timed out&quot;}]}}],&quot;executionContextId&quot;:1,&quot;timestamp&quot;:1.6481279226529e+12,&quot;stackTrace&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;9&quot;,&quot;url&quot;:&quot;https://mai ...
+09:18:42.697 [console] AT:
+09:18:42.698 [console] request failed
+09:18:42.698 &lt;&lt; {&quot;method&quot;:&quot;Runtime.consoleAPICalled&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;warning&quot;,&quot;args&quot;:[{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;AT:&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;[page-init]&quot;},{&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;View delivery error&quot;},{&quot;type&quot;:&quot;object&quot;,&quot;subtype&quot;:&quot;error&quot;,&quot;className&quot;:&quot;Error&quot;,&quot;description&quot;:&quot;Error: Request timed out\n    at XMLHttpRequest.n.ontimeout (https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/at-2.2.min.js:1:15081)&quot;,&quot;objectId&quot;:&quot;-1879123886583748489.1.4&quot;,&quot;preview&quot;:{&quot;type&quot;:&quot;object&quot;,&quot;subtype&quot;:&quot;error&quot;,&quot;description&quot;:&quot;Error: Request timed out\n    at XMLHttpRequest.n.ontimeout (https://mainsite-prod-cdn.azureedge.net/themes/4.1.9.31.5/themes/base/scripts/at-2.2.min.js:1:15081)&quot;,&quot;overflow&quot;:false,&quot;properties&quot;:[{&quot;name&quot;:&quot;stack&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Error: Request timed out\n    at XMLHttpRequest.n.o\u20269.31.5/themes/base/scripts/at-2.2.min.js:1:15081)&quot;},{&quot;name&quot;:&quot;message&quot;,&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;Request timed out&quot;}]}}],&quot;executionContextId&quot;:1,&quot;timestamp&quot;:1.648127922657819e+12,&quot;stackTrace&quot;:{&quot;callFrames&quot;:[{&quot;fun ...
+09:18:42.699 [console] AT:
+09:18:42.699 [console] [page-init]
+09:18:42.699 [console] View delivery error
+09:18:45.007 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;F11DF33086E175E300C9603983667738&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:45.008 &lt;&lt; {&quot;method&quot;:&quot;Page.frameDetached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;F11DF33086E175E300C9603983667738&quot;,&quot;reason&quot;:&quot;swap&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:45.272 &gt;&gt; {&quot;id&quot;:12,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Target.getTargets&quot;}
+09:18:45.279 &lt;&lt; {&quot;id&quot;:12,&quot;result&quot;:{&quot;targetInfos&quot;:[{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;type&quot;:&quot;page&quot;,&quot;title&quot;:&quot;Restaurant.com | Restaurant Reviews, Coupons and Deals&quot;,&quot;url&quot;:&quot;https://www.restaurant.com/&quot;,&quot;attached&quot;:true,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;url&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;attached&quot;:false,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;F11DF33086E175E300C9603983667738&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;https://i.liadm.com/s/c/a-00db?s=&amp;cim=&amp;ps=true&amp;ls=true&amp;duid=f69e8d442941--01fyy18k19tgnvd8g363ftxjs0&amp;ppid=0&amp;euns=0&amp;ci=0&amp;version=sc-v0.2.0&amp;nosync=false&amp;monitorExternalSyncs=false&amp;&quot;,&quot;url&quot;:&quot;https://i.liadm.com/s/c/a-00db?s=&amp;cim=&amp;ps=true&amp;ls=true&amp;duid=f69e8d442941--01fyy18k19tgnvd8g363ftxjs0&amp;ppid=0&amp;euns=0&amp;ci=0&amp;version=sc- ...
+09:18:45.279 waiting to switch to tab: https://specials.restaurant.com/ - retry #2
+09:18:48.287 &gt;&gt; {&quot;id&quot;:13,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Target.getTargets&quot;}
+09:18:48.289 &lt;&lt; {&quot;id&quot;:13,&quot;result&quot;:{&quot;targetInfos&quot;:[{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;type&quot;:&quot;page&quot;,&quot;title&quot;:&quot;Restaurant.com | Restaurant Reviews, Coupons and Deals&quot;,&quot;url&quot;:&quot;https://www.restaurant.com/&quot;,&quot;attached&quot;:true,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;url&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;attached&quot;:false,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;F11DF33086E175E300C9603983667738&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;about:blank&quot;,&quot;url&quot;:&quot;about:blank&quot;,&quot;attached&quot;:false,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;8FD064BEF7A086DFC58AD067E49F65BD&quot;,&quot;type&quot;:&quot;background_page&quot;,&quot;title&quot;:&quot;CryptoTokenExtension&quot;,&quot;url&quot;:&quot;chrome-extension://kmendfapggjehodndflmmgagdbamhnfd/_generated_background_page. ...
+09:18:48.290 waiting to switch to tab: https://specials.restaurant.com/ - retry #3
+09:18:49.718 &lt;&lt; {&quot;method&quot;:&quot;Page.loadEventFired&quot;,&quot;params&quot;:{&quot;timestamp&quot;:587.261666},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:49.718 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:49.738 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;0981C119D955C5FEB266B7EA07CEE62D&quot;,&quot;parentFrameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;e&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:4285},{&quot;functionName&quot;:&quot;window.__liSync&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:1885},{&quot;functionName&quot;:&quot;once&quot;,&quot;scriptId&quot;:&quot;19&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/a-00db.min.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:1669},{&quot;functionName&quot;:&quot;2../sync-container&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:2102},{&quot;functionName&quot;:&quot;l&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:509},{&quot;functionName&quot;:&quot;i&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:667},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;25&quot;,&quot;url&quot;:&quot;https://b-code.liadm.com/sync-container.js&quot;,&quot;lineNumber&quot; ...
+09:18:49.741 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;0981C119D955C5FEB266B7EA07CEE62D&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:49.817 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;0981C119D955C5FEB266B7EA07CEE62D&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:49.826 &lt;&lt; {&quot;method&quot;:&quot;Page.frameDetached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;0981C119D955C5FEB266B7EA07CEE62D&quot;,&quot;reason&quot;:&quot;swap&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:49.885 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;931ACAE0876DF0D261B140815846A923&quot;,&quot;parentFrameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;process&quot;,&quot;scriptId&quot;:&quot;22&quot;,&quot;url&quot;:&quot;https://s.btstatic.com/tag.js&quot;,&quot;lineNumber&quot;:46,&quot;columnNumber&quot;:140},{&quot;functionName&quot;:&quot;block:finish&quot;,&quot;scriptId&quot;:&quot;22&quot;,&quot;url&quot;:&quot;https://s.btstatic.com/tag.js&quot;,&quot;lineNumber&quot;:61,&quot;columnNumber&quot;:71},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;22&quot;,&quot;url&quot;:&quot;https://s.btstatic.com/tag.js&quot;,&quot;lineNumber&quot;:5,&quot;columnNumber&quot;:54},{&quot;functionName&quot;:&quot;r&quot;,&quot;scriptId&quot;:&quot;22&quot;,&quot;url&quot;:&quot;https://s.btstatic.com/tag.js&quot;,&quot;lineNumber&quot;:2,&quot;columnNumber&quot;:426},{&quot;functionName&quot;:&quot;c&quot;,&quot;scriptId&quot;:&quot;22&quot;,&quot;url&quot;:&quot;https://s.btstatic.com/tag.js&quot;,&quot;lineNumber&quot;:5,&quot;columnNumber&quot;:5},{&quot;functionName&quot;:&quot;f&quot;,&quot;scriptId&quot;:&quot;22&quot;,&quot;url&quot;:&quot;https://s.btstatic.com/tag.js&quot;,&quot;lineNumber&quot;:5,&quot;columnNumber&quot;:225},{&quot;functionName&quot;:&quot;u.onload.u.onreadystatechange&quot;,&quot;scriptId&quot;:&quot;22&quot;,&quot;url&quot;:&quot;https://s.btstatic.com/tag.js&quot;,&quot;lineNumber&quot;:7,&quot;columnNumber&quot;:30}]}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:49.886 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;931ACAE0876DF0D261B140815846A923&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.093 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;931ACAE0876DF0D261B140815846A923&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.099 &lt;&lt; {&quot;method&quot;:&quot;Page.frameDetached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;931ACAE0876DF0D261B140815846A923&quot;,&quot;reason&quot;:&quot;swap&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.156 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;,&quot;parentFrameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;oiq_iifr&quot;,&quot;scriptId&quot;:&quot;163&quot;,&quot;url&quot;:&quot;https://px.owneriq.net/stas/s/restrt.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:1752},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;163&quot;,&quot;url&quot;:&quot;https://px.owneriq.net/stas/s/restrt.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:11671}]}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.158 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.163 &lt;&lt; {&quot;method&quot;:&quot;Page.frameNavigated&quot;,&quot;params&quot;:{&quot;frame&quot;:{&quot;id&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;,&quot;parentId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;loaderId&quot;:&quot;4911BF97C4F21403ADF1E3A864753B97&quot;,&quot;name&quot;:&quot;&quot;,&quot;url&quot;:&quot;about:blank&quot;,&quot;domainAndRegistry&quot;:&quot;&quot;,&quot;securityOrigin&quot;:&quot;://&quot;,&quot;mimeType&quot;:&quot;text/html&quot;,&quot;adFrameType&quot;:&quot;none&quot;,&quot;secureContextType&quot;:&quot;Secure&quot;,&quot;crossOriginIsolatedContextType&quot;:&quot;NotIsolated&quot;,&quot;gatedAPIFeatures&quot;:[&quot;SharedArrayBuffers&quot;,&quot;SharedArrayBuffersTransferAllowed&quot;]}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.165 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextCreated&quot;,&quot;params&quot;:{&quot;context&quot;:{&quot;id&quot;:2,&quot;origin&quot;:&quot;https://www.restaurant.com&quot;,&quot;name&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;3671059680035335607.1141725182079964416&quot;,&quot;auxData&quot;:{&quot;isDefault&quot;:true,&quot;type&quot;:&quot;default&quot;,&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;}}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.165 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.166 &lt;&lt; {&quot;method&quot;:&quot;Page.frameScheduledNavigation&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;,&quot;delay&quot;:0,&quot;reason&quot;:&quot;scriptInitiated&quot;,&quot;url&quot;:&quot;https://px.owneriq.net/eps?pt=restrt&amp;pid=570&amp;uid=Q7014143302112038734J&amp;l=true&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.167 &lt;&lt; {&quot;method&quot;:&quot;Page.frameRequestedNavigation&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;,&quot;reason&quot;:&quot;scriptInitiated&quot;,&quot;url&quot;:&quot;https://px.owneriq.net/eps?pt=restrt&amp;pid=570&amp;uid=Q7014143302112038734J&amp;l=true&quot;,&quot;disposition&quot;:&quot;currentTab&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.167 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.177 &lt;&lt; {&quot;method&quot;:&quot;Page.frameClearedScheduledNavigation&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.265 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;4DB0109C17E4727AB6F539ABDD60855C&quot;,&quot;parentFrameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;k&quot;,&quot;scriptId&quot;:&quot;164&quot;,&quot;url&quot;:&quot;https://static.criteo.net/js/ld/ld.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:32793},{&quot;functionName&quot;:&quot;T&quot;,&quot;scriptId&quot;:&quot;164&quot;,&quot;url&quot;:&quot;https://static.criteo.net/js/ld/ld.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:32096},{&quot;functionName&quot;:&quot;o&quot;,&quot;scriptId&quot;:&quot;164&quot;,&quot;url&quot;:&quot;https://static.criteo.net/js/ld/ld.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:30646},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;164&quot;,&quot;url&quot;:&quot;https://static.criteo.net/js/ld/ld.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:39682},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;164&quot;,&quot;url&quot;:&quot;https://static.criteo.net/js/ld/ld.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:30092},{&quot;functionName&quot;:&quot;m.retrieveConsent&quot;,&quot;scriptId&quot;:&quot;164&quot;,&quot;url&quot;:&quot;https://static.criteo.net/js/ld/ld.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:9548},{&quot;functionName&quot;:&quot;&quot;,&quot;scriptId&quot;:&quot;164&quot;,&quot;url&quot;:&quot;https://static.criteo.net/js/ld/ld.js&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:30029},{&quot;functionNa ...
+09:18:50.274 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;4DB0109C17E4727AB6F539ABDD60855C&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.456 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.457 &lt;&lt; {&quot;method&quot;:&quot;Page.frameDetached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;B62B4C2B49D9EF0C5C5015E38F4B4663&quot;,&quot;reason&quot;:&quot;swap&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.457 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextDestroyed&quot;,&quot;params&quot;:{&quot;executionContextId&quot;:2},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.679 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;4DB0109C17E4727AB6F539ABDD60855C&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.680 &lt;&lt; {&quot;method&quot;:&quot;Page.frameDetached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;4DB0109C17E4727AB6F539ABDD60855C&quot;,&quot;reason&quot;:&quot;swap&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.978 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;17DD7E6F7341B5C97B732E6F01CB047D&quot;,&quot;parentFrameId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;callDisInternal&quot;,&quot;scriptId&quot;:&quot;174&quot;,&quot;url&quot;:&quot;https://sslwidget.criteo.com/event?a=12544&amp;v=5.8.1&amp;p0=e%3Dexd%26site_type%3Dd&amp;p1=e%3Dvh&amp;p2=e%3Ddis&amp;adce=1&amp;bundle=T70rpl9sd3hCeWxPVlA5MXJlSnV5RVVQZCUyQlllNVdjakFwVXlzTFdvOXdWJTJCYyUyQnpPTEpuJTJGbHY3R0QzTUpIVnRLSHdoVTRiYUY3Qm53dWVYYmNnJTJCQklCUk1TWG9hQ2ZmZlBtMzl2UTFpa3JXc1dlMUp0c25qZm5CVVB5cUk3dVo1VkRTZ0Y4bGRJRjZwdjdSWkRJMGZlUmEzMWVnJTNEJTNE&amp;tld=restaurant.com&amp;dtycbr=90887&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:768},{&quot;functionName&quot;:&quot;c&quot;,&quot;scriptId&quot;:&quot;174&quot;,&quot;url&quot;:&quot;https://sslwidget.criteo.com/event?a=12544&amp;v=5.8.1&amp;p0=e%3Dexd%26site_type%3Dd&amp;p1=e%3Dvh&amp;p2=e%3Ddis&amp;adce=1&amp;bundle=T70rpl9sd3hCeWxPVlA5MXJlSnV5RVVQZCUyQlllNVdjakFwVXlzTFdvOXdWJTJCYyUyQnpPTEpuJTJGbHY3R0QzTUpIVnRLSHdoVTRiYUY3Qm53dWVYYmNnJTJCQklCUk1TWG9hQ2ZmZlBtMzl2UTFpa3JXc1dlMUp0c25qZm5CVVB5cUk3dVo1VkRTZ0Y4bGRJRjZwdjdSWkRJMGZlUmEzMWVnJTNEJTNE&amp;tld=restau ...
+09:18:50.982 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;17DD7E6F7341B5C97B732E6F01CB047D&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.994 &lt;&lt; {&quot;method&quot;:&quot;Page.frameNavigated&quot;,&quot;params&quot;:{&quot;frame&quot;:{&quot;id&quot;:&quot;17DD7E6F7341B5C97B732E6F01CB047D&quot;,&quot;parentId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;loaderId&quot;:&quot;5864A18FD69F6EE25FD5F1A071F5790F&quot;,&quot;name&quot;:&quot;&quot;,&quot;url&quot;:&quot;about:blank&quot;,&quot;domainAndRegistry&quot;:&quot;&quot;,&quot;securityOrigin&quot;:&quot;://&quot;,&quot;mimeType&quot;:&quot;text/html&quot;,&quot;adFrameType&quot;:&quot;none&quot;,&quot;secureContextType&quot;:&quot;Secure&quot;,&quot;crossOriginIsolatedContextType&quot;:&quot;NotIsolated&quot;,&quot;gatedAPIFeatures&quot;:[&quot;SharedArrayBuffers&quot;,&quot;SharedArrayBuffersTransferAllowed&quot;]}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.995 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextCreated&quot;,&quot;params&quot;:{&quot;context&quot;:{&quot;id&quot;:3,&quot;origin&quot;:&quot;https://www.restaurant.com&quot;,&quot;name&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;8612786556837255893.6489025726136577029&quot;,&quot;auxData&quot;:{&quot;isDefault&quot;:true,&quot;type&quot;:&quot;default&quot;,&quot;frameId&quot;:&quot;17DD7E6F7341B5C97B732E6F01CB047D&quot;}}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.995 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;17DD7E6F7341B5C97B732E6F01CB047D&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.996 &lt;&lt; {&quot;method&quot;:&quot;Page.documentOpened&quot;,&quot;params&quot;:{&quot;frame&quot;:{&quot;id&quot;:&quot;17DD7E6F7341B5C97B732E6F01CB047D&quot;,&quot;parentId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;loaderId&quot;:&quot;5864A18FD69F6EE25FD5F1A071F5790F&quot;,&quot;name&quot;:&quot;&quot;,&quot;url&quot;:&quot;https://www.restaurant.com/&quot;,&quot;domainAndRegistry&quot;:&quot;restaurant.com&quot;,&quot;securityOrigin&quot;:&quot;https://www.restaurant.com&quot;,&quot;mimeType&quot;:&quot;text/html&quot;,&quot;adFrameType&quot;:&quot;none&quot;,&quot;secureContextType&quot;:&quot;Secure&quot;,&quot;crossOriginIsolatedContextType&quot;:&quot;NotIsolated&quot;,&quot;gatedAPIFeatures&quot;:[&quot;SharedArrayBuffers&quot;,&quot;SharedArrayBuffersTransferAllowed&quot;]}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:50.996 &lt;&lt; {&quot;method&quot;:&quot;Page.frameAttached&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;F8C50F6A9BC07FE1D1C7CEB0D8C370E6&quot;,&quot;parentFrameId&quot;:&quot;17DD7E6F7341B5C97B732E6F01CB047D&quot;,&quot;stack&quot;:{&quot;callFrames&quot;:[{&quot;functionName&quot;:&quot;callDisInternal&quot;,&quot;scriptId&quot;:&quot;174&quot;,&quot;url&quot;:&quot;https://sslwidget.criteo.com/event?a=12544&amp;v=5.8.1&amp;p0=e%3Dexd%26site_type%3Dd&amp;p1=e%3Dvh&amp;p2=e%3Ddis&amp;adce=1&amp;bundle=T70rpl9sd3hCeWxPVlA5MXJlSnV5RVVQZCUyQlllNVdjakFwVXlzTFdvOXdWJTJCYyUyQnpPTEpuJTJGbHY3R0QzTUpIVnRLSHdoVTRiYUY3Qm53dWVYYmNnJTJCQklCUk1TWG9hQ2ZmZlBtMzl2UTFpa3JXc1dlMUp0c25qZm5CVVB5cUk3dVo1VkRTZ0Y4bGRJRjZwdjdSWkRJMGZlUmEzMWVnJTNEJTNE&amp;tld=restaurant.com&amp;dtycbr=90887&quot;,&quot;lineNumber&quot;:0,&quot;columnNumber&quot;:858},{&quot;functionName&quot;:&quot;c&quot;,&quot;scriptId&quot;:&quot;174&quot;,&quot;url&quot;:&quot;https://sslwidget.criteo.com/event?a=12544&amp;v=5.8.1&amp;p0=e%3Dexd%26site_type%3Dd&amp;p1=e%3Dvh&amp;p2=e%3Ddis&amp;adce=1&amp;bundle=T70rpl9sd3hCeWxPVlA5MXJlSnV5RVVQZCUyQlllNVdjakFwVXlzTFdvOXdWJTJCYyUyQnpPTEpuJTJGbHY3R0QzTUpIVnRLSHdoVTRiYUY3Qm53dWVYYmNnJTJCQklCUk1TWG9hQ2ZmZlBtMzl2UTFpa3JXc1dlMUp0c25qZm5CVVB5cUk3dVo1VkRTZ0Y4bGRJRjZwdjdSWkRJMGZlUmEzMWVnJTNEJTNE&amp;tld=restau ...
+09:18:51.002 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStartedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;F8C50F6A9BC07FE1D1C7CEB0D8C370E6&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:51.010 &lt;&lt; {&quot;method&quot;:&quot;Runtime.executionContextCreated&quot;,&quot;params&quot;:{&quot;context&quot;:{&quot;id&quot;:4,&quot;origin&quot;:&quot;https://www.restaurant.com&quot;,&quot;name&quot;:&quot;&quot;,&quot;uniqueId&quot;:&quot;-1705182524222067518.527268373987445817&quot;,&quot;auxData&quot;:{&quot;isDefault&quot;:true,&quot;type&quot;:&quot;default&quot;,&quot;frameId&quot;:&quot;F8C50F6A9BC07FE1D1C7CEB0D8C370E6&quot;}}},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:51.017 &lt;&lt; {&quot;method&quot;:&quot;Page.frameStoppedLoading&quot;,&quot;params&quot;:{&quot;frameId&quot;:&quot;F8C50F6A9BC07FE1D1C7CEB0D8C370E6&quot;},&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;}
+09:18:51.305 &gt;&gt; {&quot;id&quot;:14,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Target.getTargets&quot;}
+09:18:51.319 &lt;&lt; {&quot;id&quot;:14,&quot;result&quot;:{&quot;targetInfos&quot;:[{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;,&quot;type&quot;:&quot;page&quot;,&quot;title&quot;:&quot;Restaurant.com | Restaurant Reviews, Coupons and Deals&quot;,&quot;url&quot;:&quot;https://www.restaurant.com/&quot;,&quot;attached&quot;:true,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;BAB87A0A502D8A5A4EEE9D13F7FD9185&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;url&quot;:&quot;https://restaurant.demdex.net/dest5.html?d_nsid=0#https%3A%2F%2Fwww.restaurant.com&quot;,&quot;attached&quot;:false,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;F11DF33086E175E300C9603983667738&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;about:blank&quot;,&quot;url&quot;:&quot;about:blank&quot;,&quot;attached&quot;:false,&quot;canAccessOpener&quot;:false,&quot;browserContextId&quot;:&quot;251F67656240B718C433D9D78D48984C&quot;},{&quot;targetId&quot;:&quot;0981C119D955C5FEB266B7EA07CEE62D&quot;,&quot;type&quot;:&quot;iframe&quot;,&quot;title&quot;:&quot;https://i.liadm.com/s/c/a-00db?s=MgUIBhDxETIFCAoQ8REyBQh-EPARMgYIiwEQ8REyBQgLEPERMgUIDBDxETIFCHkQ8BE&amp;cim=&amp;ps=true&amp;ls= ...
+09:18:51.319 waiting to switch to tab: https://specials.restaurant.com/: failed after 3 retries and 9057 milliseconds
+09:18:51.417 classpath:com/switchPage/switchPageValidation.feature:17
+* switchPage('https://specials.restaurant.com/')
+js failed:
+&gt;&gt;&gt;&gt;
+01: switchPage('https://specials.restaurant.com/')
+&lt;&lt;&lt;&lt;
+org.graalvm.polyglot.PolyglotException: waiting to switch to tab: https://specials.restaurant.com/: failed after 3 retries and 9057 milliseconds
+- com.intuit.karate.driver.DriverOptions.retry(DriverOptions.java:517)
+- com.intuit.karate.driver.DevToolsDriver.switchPage(DevToolsDriver.java:865)
+- &lt;js&gt;.:anonymous(Unnamed:1)
+
+classpath:com/switchPage/switchPageValidation.feature:17
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">waitUntil(&quot;document.readyState == 'complete'&quot;)</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-8">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-8" class="collapse collapsable-details">
+        <pre>09:18:51.418 &gt;&gt; {&quot;id&quot;:15,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Page.captureScreenshot&quot;}
+09:18:51.657 &lt;&lt; {&quot;id&quot;:15,&quot;result&quot;:{&quot;data&quot;:&quot;iVBORw0KGgoAAAANSUhEUgAABQAAAAJ0CAYAAABN8I6uAAAAAXNSR0IArs4c6QAAIABJREFUeJzs3XdYleUbwPHvOew9BGUooAgOVBRFNPceOXNWmpqapQ37aWqlpllWpi0tLc1cacPMvffECe6tKAgIguwN5/fHiQOHwzgoaNL9ua5zXZx3Pu97Xs643/t+HoVKpVIhhBBCCCGEEEIIIYT410pISHjkdZVl2A4hhBBCCCGEEEIIIcS/jAQAhRBCCCGEEEIIIYSowCQAKIQQQgghhBBCCCFEBSYBQCGEEEIIIYQQQgghKjAJAAohhBBCCCGEEEIIUYFJAFAIIYQQQgghhBBCiGfYxo0bi50vAUAhhBBCCCGEEEIIIZ5RucG/4oKAEgAUQgghhBBCCCGEEOIZVDDoV1QQUAKAQgghhBBCCCGEEEI8Y4oK9hU2XaFSqVTl3SAhhBBCCCGEEEIIIcSjS0hIeOR1JQNQCCGEEEIIIYQQQogKTAKAQgghhBBCCCGEEEJUYBIAFEIIIYQQQgghhBCiApMAoBBCCCGEEEIIIYQQFZjh026AEEIIIYQQQgghhBBCP0FBQXov26hRI0AyAIUQQgghhKhQDpw4j4lPbx481G+kwNmL/qBhrzfLuVXPJhOf3vy14wgAicmpdB05DetG/fnxt21PuWVFM6vfV9NmIY6cuVSq9wPx6J7E/15J7+993pjFmGnzy7UNomRdR07jnU9+fNrN0CEBQCGEEEIIIcrIpRt3GfreXKq3G4GF7wtU8h9Mp+EfsvPwmSfWBt/aNdj5yyfYWJo/sX0+SzIys/hm2QaaD5yAvf8gbBsPwKfb64z/9CciomO1lt35yye09q8HwJZ9Jzhy+hJBG+Yzol8nVCoVcxavLXF/Z6/cYuh7c3FrMwwL3xdwbzOcF9/9glPnr5fL8f1XZGVlY+LTmxV/79GZl5SSiolPb1Zv2v9E2jJm2nxaDn5P8/xuRHSR+9528BQmP ...
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="embeddings inner-level">
+  <div class="embedding indention">
+    <div data-toggle="collapse" data-target="#embedding-9" class="collapsable-control">
+      <a>Attachment 1 (png)</a>
+      <a href="embeddings/embedding_1206294758.png" download target="_blank">
+        <span class="download-button glyphicon glyphicon-download-alt"></span>
+      </a>
+    </div>
+    <div id="embedding-9" class="collapse collapsable-details ">
+      <div class="embedding-content">
+        <img src="embeddings/embedding_1206294758.png">
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* skipped">
+  <span class="keyword indention">*</span>
+  <span class="name">screenshot()</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+  <div class="inner-level">
+    <div class="docstring indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-10">
+          <a>Doc string</a>
+      </div>
+      <div id="msg-10" class="collapse collapsable-details">
+        <pre>09:18:51.665 &gt;&gt; {&quot;id&quot;:16,&quot;sessionId&quot;:&quot;F54258357AEAEAF6482748606B840146&quot;,&quot;method&quot;:&quot;Target.closeTarget&quot;,&quot;params&quot;:{&quot;targetId&quot;:&quot;2FC741112657DBC1F3B1BB2E03649615&quot;}}
+09:18:51.673 custom target configured, attempting stop()
+09:18:59.964 appended video to report: target\karate-reports\com.switchPage.switchPageValidation_2_1648127939962.mp4
+</pre>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="step">
+
+
+<div class="brief step-name-* passed">
+  <span class="keyword indention">*</span>
+  <span class="name">[video]</span>
+
+  <span class="lead-duration duration">0.000</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="embeddings inner-level">
+<div class="embedding indention">
+  <div data-toggle="collapse" data-target="#embedding-11" class="collapsable-control">
+    <a>Attachment 1 (HTML)</a>
+    <a href="embeddings/embedding_1186470842.html" download target="_blank">
+      <span class="download-button glyphicon glyphicon-download-alt"></span>
+    </a>
+  </div>
+  <div id="embedding-11" class="collapse collapsable-details ">
+    <div class="embedding-content">
+      <div class="html-content">
+        <iframe seamless="true" sandbox="allow-scripts" src="embeddings/embedding_1186470842.html" srcdoc="&lt;video controls=&quot;true&quot; width=&quot;100%&quot;&gt;&lt;source src=&quot;com.switchPage.switchPageValidation_2_1648127939962.mp4&quot; type=&quot;video/mp4&quot;/&gt;&lt;/video&gt;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+
+
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1 col-md-offset-10">
+      <i class="fa fa-chevron-circle-down fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('show')"></i>
+      <i class="fa fa-chevron-circle-up fa-2x collapsable-control"
+        onClick="javascript:$('#report .collapsable-details').collapse('hide')"></i>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

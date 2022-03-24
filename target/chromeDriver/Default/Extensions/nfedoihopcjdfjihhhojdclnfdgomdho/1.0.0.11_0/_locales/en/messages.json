@@ -1,0 +1,18 @@
+{
+   "ExtnDescription": {
+      "Description": "Extension Description",
+      "message": "Set Microsoft Bing as your default homepage, default search engine & stay up-to-date with the latest Trending Topics"
+   },
+   "ExtnName": {
+      "Description": "Extension name",
+      "message": "Bing Homepage, Search & Trending Topics"
+   },
+   "HomePage": {
+      "Description": "Homepage",
+      "message": ""
+   },
+   "PromptMarket": {
+      "Description": "PromptMarket",
+      "message": "en-us"
+   }
+}
